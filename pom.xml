@@ -94,16 +94,7 @@
     <version>1.18.24</version>
     <scope>provided</scope>
 </dependency>
-<dependency>
-                    <groupId>org.junit.platform</groupId>
-                    <artifactId>junit-platform-surefire-provider</artifactId>
-                    <version>1.0.0</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.junit.jupiter</groupId>
-                    <artifactId>junit-jupiter-engine</artifactId>
-                    <version>5.0.0</version>
-                </dependency>
+
 	</dependencies>
 	<build>
 <plugins>
