@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
             features = "src/test/resources/Feature/steps.feature",
-            		plugin = {"pretty",
+            		plugin = {"pretty","json:target/cucumber-reports/cucumber.json",
             				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
             glue = {"stepdefinations","AppHooks"},
            tags="@NavigateLatestSection"
