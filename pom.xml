@@ -3,6 +3,9 @@
   <groupId>JunitWeb</groupId>
   <artifactId>Cucumber_JunitWeb</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <properties>
+  <browser>Browser</browser>
+  </properties>
   <dependencies>
 	
 	<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-install-plugin -->
