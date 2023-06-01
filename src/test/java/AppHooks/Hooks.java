@@ -31,7 +31,7 @@ public void launchbrowser()
 {
 	String browserName=prop.getProperty("browser");
 	driverfactory=new webdriverfactory();
-	System.out.println("return driver"+driverfactory);
+	System.out.println("return driver "+driverfactory);
 	driver=driverfactory.init_driver(browserName);
 	String LaunchURL=prop.getProperty("launchurl");
 	driver.get(LaunchURL);

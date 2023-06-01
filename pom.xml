@@ -4,7 +4,7 @@
   <artifactId>Cucumber_JunitWeb</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <properties>
-  <browser>Browser</browser>
+  <enterbrowser>browservalue</enterbrowser>
   </properties>
   <dependencies>
 	
@@ -114,5 +114,11 @@
                 </configuration>
         </plugin>
 </plugins>
+<testResources>
+<testResource>
+<directory>src/test/resources/config</directory>
+<filtering>true</filtering>
+</testResource>
+</testResources>
 </build> 
 </project>

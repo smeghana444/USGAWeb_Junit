@@ -1,19 +1,22 @@
 package util;
 
-import java.io.FileInputStream;
+
 import java.io.InputStream;
 import java.util.Properties;
-
 public class ConfigReader 
 {
-private static String configpath=System.getProperty("user.dir")+"/src/test/resources/config/config.properties";
+
 private Properties prop;
 public Properties init_prop()
 {
 	prop=new Properties();
 	try {
-	InputStream instm = new FileInputStream(configpath);
-	prop.load(instm);
+		ClassLoader loader = Thread.currentThread().getContextClassLoader();
+	
+		InputStream resourceStream = loader.getResourceAsStream("config.properties"); 
+		
+	//InputStream instm = new FileInputStream(configpath);
+	prop.load(resourceStream);
 	}catch(Exception e)
 	{
 		e.printStackTrace();
