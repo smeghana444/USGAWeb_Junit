@@ -92,6 +92,12 @@
 
 	</dependencies>
 	<build>
+	<testResources>
+<testResource>
+<directory>src/test/resources/config</directory>
+<filtering>true</filtering>
+</testResource>
+</testResources>
 <plugins>
 <plugin>
 <groupId>org.apache.maven.plugins</groupId>
@@ -114,11 +120,6 @@
                 </configuration>
         </plugin>
 </plugins>
-<testResources>
-<testResource>
-<directory>src/test/resources/config</directory>
-<filtering>true</filtering>
-</testResource>
-</testResources>
+
 </build> 
 </project>

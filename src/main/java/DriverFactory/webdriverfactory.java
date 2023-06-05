@@ -23,8 +23,7 @@ public class webdriverfactory
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--remote-allow-origins=*");
 			tlDriver.set(new ChromeDriver(options));
-			
-			
+				
 		}
 		else if(browser.equals("edge"))
 		{
