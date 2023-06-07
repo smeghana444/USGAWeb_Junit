@@ -1,6 +1,8 @@
 package AppHooks;
 
 import java.util.Properties;
+
+import org.junit.Assert;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -9,9 +11,6 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import util.ConfigReader;
-
-
-
 
 
 
@@ -37,10 +36,12 @@ public void launchbrowser() throws Exception
 	
 	config.startRecord();
 	String browserName=prop.getProperty("browser");
+	Assert.assertTrue(browserName, true);
 	driverfactory=new webdriverfactory();
 	System.out.println("return driver "+driverfactory);
 	driver=driverfactory.init_driver(browserName);
 	String LaunchURL=prop.getProperty("launchurl");
+	Assert.assertTrue(LaunchURL, true);
 	driver.get(LaunchURL);
 	System.out.println("Launched the URL");
 	
@@ -60,7 +61,7 @@ public void tearDown(Scenario scenario) throws Exception
 	
 	final byte[] sourcePath= ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
 	scenario.attach(sourcePath, "image/png", scenario.getName());	
-	 
+	Assert.assertFalse(false);
 	}
 	config.stopRecord();
 }

@@ -56,6 +56,7 @@ JavascriptExecutor js = (JavascriptExecutor) driver;
 	   public String getLoginPageTitle()
 	   {
 		   return driver.getTitle();
+		   
 	   }
 		public void navigate_championship()
 		{					
