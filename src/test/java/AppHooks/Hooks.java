@@ -9,7 +9,8 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import util.ConfigReader;
-import util.ScreenRecorderUtil;
+import util.ScreenRecording;
+
 
 
 public class Hooks
@@ -18,7 +19,7 @@ private webdriverfactory driverfactory;
 private WebDriver driver;
 private ConfigReader config;
 Properties prop;
-static ScreenRecorderUtil screen;
+static ScreenRecording screen;
 @Before(order=0)
 public void getProperty() throws Exception
 {
@@ -30,7 +31,7 @@ public void getProperty() throws Exception
 @Before(order=1)
 public void launchbrowser() throws Exception
 {
-	screen=new ScreenRecorderUtil();
+	screen=new ScreenRecording();
 	screen.startRecord();	
 	String browserName=prop.getProperty("browser");
 	driverfactory=new webdriverfactory();
