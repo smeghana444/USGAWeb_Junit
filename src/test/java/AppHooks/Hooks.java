@@ -1,19 +1,18 @@
 package AppHooks;
 
 import java.util.Properties;
-
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-
 import DriverFactory.webdriverfactory;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import util.ConfigReader;
+import util.ScreenRecorderUtil;
 
 
-public class Hooks 
+public class Hooks
 {
 private webdriverfactory driverfactory;
 private WebDriver driver;
