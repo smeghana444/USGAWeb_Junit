@@ -9,7 +9,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import util.ConfigReader;
-import util.screenRecorderUtil;
+import util.VideoRecorder;
 
 
 
@@ -32,7 +32,7 @@ public void getProperty() throws Exception
 @Before(order=1)
 public void launchbrowser() throws Exception
 {
-	screenRecorderUtil.startRecord("launch");
+	VideoRecorder.startRecord("launch");
 	String browserName=prop.getProperty("browser");
 	driverfactory=new webdriverfactory();
 	System.out.println("return driver "+driverfactory);
@@ -59,7 +59,7 @@ public void tearDown(Scenario scenario) throws Exception
 	scenario.attach(sourcePath, "image/png", scenario.getName());	
 	 
 	}
-	screenRecorderUtil.stopRecord();
+	VideoRecorder.stopRecord();
 }
 
 }
