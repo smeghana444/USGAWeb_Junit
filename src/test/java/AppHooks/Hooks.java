@@ -18,7 +18,7 @@ private webdriverfactory driverfactory;
 private WebDriver driver;
 private ConfigReader config;
 Properties prop;
-
+static ScreenRecorderUtil screen;
 @Before(order=0)
 public void getProperty() throws Exception
 {
@@ -30,7 +30,8 @@ public void getProperty() throws Exception
 @Before(order=1)
 public void launchbrowser() throws Exception
 {
-	ScreenRecorderUtil.startRecord("LaunchApp");	
+	screen=new ScreenRecorderUtil();
+	screen.startRecord();	
 	String browserName=prop.getProperty("browser");
 	driverfactory=new webdriverfactory();
 	System.out.println("return driver "+driverfactory);
@@ -57,7 +58,7 @@ public void tearDown(Scenario scenario) throws Exception
 	scenario.attach(sourcePath, "image/png", scenario.getName());	
 	 
 	}
-	ScreenRecorderUtil.stopRecord();
+	screen.stopRecord();
 }
 
 }
