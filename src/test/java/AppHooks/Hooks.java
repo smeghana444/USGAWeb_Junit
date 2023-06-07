@@ -1,8 +1,6 @@
 package AppHooks;
 
 import java.util.Properties;
-
-import org.monte.screenrecorder.ScreenRecorder;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +9,8 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import util.ConfigReader;
-import util.ScreenRecording;
+import util.ScreenRecorderUtil;
+
 
 
 
@@ -21,12 +20,10 @@ private webdriverfactory driverfactory;
 private WebDriver driver;
 private ConfigReader config;
 Properties prop;
-static ScreenRecording screen;
-ScreenRecorder record;
 @Before(order=0)
 public void getProperty() throws Exception
 {
-	
+	ScreenRecorderUtil.startRecord("launch");
 	config=new ConfigReader();
 	prop=config.init_prop();
 		
@@ -34,8 +31,7 @@ public void getProperty() throws Exception
 @Before(order=1)
 public void launchbrowser() throws Exception
 {
-	screen=new ScreenRecording();
-	record=screen.startRecord();	
+	
 	String browserName=prop.getProperty("browser");
 	driverfactory=new webdriverfactory();
 	System.out.println("return driver "+driverfactory);
@@ -62,7 +58,7 @@ public void tearDown(Scenario scenario) throws Exception
 	scenario.attach(sourcePath, "image/png", scenario.getName());	
 	 
 	}
-	record=screen.stopRecord();
+	ScreenRecorderUtil.stopRecord();
 }
 
 }
