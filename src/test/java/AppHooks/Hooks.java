@@ -21,7 +21,7 @@ private webdriverfactory driverfactory;
 private WebDriver driver;
 private ConfigReader config;
 Properties prop;
-private VideoRecorder record;
+static VideoRecorder record;
 
 @Before(order=0)
 public void getProperty() throws Exception
@@ -34,7 +34,8 @@ public void getProperty() throws Exception
 @Before(order=1)
 public void launchbrowser() throws Exception
 {
-	record.startRecord("launch");
+	record=new VideoRecorder();
+	record.startRecord();
 	String browserName=prop.getProperty("browser");
 	driverfactory=new webdriverfactory();
 	System.out.println("return driver "+driverfactory);
