@@ -24,7 +24,7 @@ Properties prop;
 @Before(order=0)
 public void getProperty() throws Exception
 {
-	screenRecorderUtil.startRecord("launch");
+	
 	config=new ConfigReader();
 	prop=config.init_prop();
 		
@@ -32,7 +32,7 @@ public void getProperty() throws Exception
 @Before(order=1)
 public void launchbrowser() throws Exception
 {
-	
+	screenRecorderUtil.startRecord("launch");
 	String browserName=prop.getProperty("browser");
 	driverfactory=new webdriverfactory();
 	System.out.println("return driver "+driverfactory);
