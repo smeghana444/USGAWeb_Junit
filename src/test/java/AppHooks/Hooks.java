@@ -9,7 +9,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import util.ConfigReader;
-import util.ScreenRecorderUtil;
+import util.screenRecorderUtil;
 
 
 
@@ -24,7 +24,7 @@ Properties prop;
 @Before(order=0)
 public void getProperty() throws Exception
 {
-	ScreenRecorderUtil.startRecord("launch");
+	screenRecorderUtil.startRecord("launch");
 	config=new ConfigReader();
 	prop=config.init_prop();
 		
@@ -59,7 +59,7 @@ public void tearDown(Scenario scenario) throws Exception
 	scenario.attach(sourcePath, "image/png", scenario.getName());	
 	 
 	}
-	ScreenRecorderUtil.stopRecord();
+	screenRecorderUtil.stopRecord();
 }
 
 }
