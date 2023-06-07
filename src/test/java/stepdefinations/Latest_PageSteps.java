@@ -13,8 +13,9 @@ public class Latest_PageSteps
 	
 	
 	@Given("Verify the app title")
-	public void get_the_app_title() 
+	public void get_the_app_title() throws Exception 
 	{
+		
 		String title=latest.getLoginPageTitle();
 		System.out.println("Launch page title is "+title);
 		
@@ -39,7 +40,7 @@ public class Latest_PageSteps
 	    
 	}
     @Then("Click on More menu and close")
-	public void click_on_more_menu()
+	public void click_on_more_menu() throws Exception
 	{
 		
 		System.out.println("Click on more menu");

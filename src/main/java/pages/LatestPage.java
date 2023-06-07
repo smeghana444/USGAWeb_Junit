@@ -11,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 
 
+
 public class LatestPage
 {
  WebDriver driver;
@@ -85,12 +86,14 @@ JavascriptExecutor js = (JavascriptExecutor) driver;
       	
  	   
 		}
-		public void moremenu()
+		public void moremenu() throws Exception
 		{
+			
 			ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
 		    driver.switchTo().window(tabs.get(1));
 		    driver.findElement(moremenu).click();
 		    driver.findElement(moremenuclose).click();
+		   
 			
 		}
 		public void navigate_to_latesttab()

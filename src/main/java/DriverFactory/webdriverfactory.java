@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import util.ScreenRecorderUtil;
 
 public class webdriverfactory
 
@@ -14,7 +15,7 @@ public class webdriverfactory
 
 	public WebDriver driver;
 	public static ThreadLocal<WebDriver> tlDriver=new ThreadLocal<WebDriver>();
-	public WebDriver init_driver(String browser)
+	public WebDriver init_driver(String browser) throws Exception
 	{
 		System.out.println("browser value is: "+browser);
 		if(browser.equalsIgnoreCase("chrome"))
@@ -22,8 +23,7 @@ public class webdriverfactory
 			WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--remote-allow-origins=*");
-			tlDriver.set(new ChromeDriver(options));
-				
+			tlDriver.set(new ChromeDriver(options));				
 		}
 		else if(browser.equals("edge"))
 		{

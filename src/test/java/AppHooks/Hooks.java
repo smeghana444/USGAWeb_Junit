@@ -11,6 +11,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import util.ConfigReader;
+import util.ScreenRecorderUtil;
 
 public class Hooks 
 {
@@ -20,15 +21,17 @@ private ConfigReader config;
 Properties prop;
 
 @Before(order=0)
-public void getProperty()
+public void getProperty() throws Exception
 {
+	
 	config=new ConfigReader();
 	prop=config.init_prop();
 		
 }
 @Before(order=1)
-public void launchbrowser()
+public void launchbrowser() throws Exception
 {
+	ScreenRecorderUtil.startRecord("LaunchApp");	
 	String browserName=prop.getProperty("browser");
 	driverfactory=new webdriverfactory();
 	System.out.println("return driver "+driverfactory);
@@ -39,20 +42,23 @@ public void launchbrowser()
 	
 }
 
+
 @After(order=0)
 public void quitBrowser()
 {
 	driver.quit();
 }
 @After(order=1)
-public void tearDown(Scenario scenario)
+public void tearDown(Scenario scenario) throws Exception
 {
 	if(scenario.isFailed())
 	{
+	
 	final byte[] sourcePath= ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
 	scenario.attach(sourcePath, "image/png", scenario.getName());	
+	 
 	}
-	
+	ScreenRecorderUtil.stopRecord();
 }
 
 }
