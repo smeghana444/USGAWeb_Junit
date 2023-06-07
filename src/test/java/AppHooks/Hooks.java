@@ -8,8 +8,8 @@ import DriverFactory.webdriverfactory;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import stepdefinations.screenRecorderUtil;
 import util.ConfigReader;
+import util.screenRecorderUtil;
 
 
 
