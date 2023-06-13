@@ -9,10 +9,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 
+import DriverFactory.webdriverfactory;
 
 
 
-public class LatestPage
+
+public class LatestPage extends webdriverfactory
 {
  WebDriver driver;
 
@@ -31,12 +33,12 @@ private By verifydate=By.xpath("//span[@class='regular-s']");
 private By scrolltillquickreads=By.xpath("//h3[contains(text(),'Quick Reads')]");
 private By quickreads_totalcards=By.xpath("//div[@class='semi-bold-body  large-card_body_title']");
 private By quickreads_dates=By.xpath("//span[@class='regular-s large-card_body_date large-card_body_span']");
-private By readmore=By.xpath("(//button[text()='Read More'])[14]");
+private By readmore=By.xpath("(//button[text()='Read More'])[16]");
 private By closecard=By.xpath("//button[text()='Close']");
-private By copyshare=By.xpath("(//div[@sectionname='Quick Reads']//li[@id='copy'])[14]");
-private By facebookshare=By.xpath("(//div[@sectionname='Quick Reads']//li[@id='facebookId'])[14]");
-private By twittershare=By.xpath("(//div[@sectionname='Quick Reads']//li[@id='twitterId'])[14]");
-private By linkedinshare=By.xpath("(//div[@sectionname='Quick Reads']//li[@id='linkedinId'])[14]");
+private By copyshare=By.xpath("(//div[@sectionname='Quick Reads']//li[@id='copy'])[16]");
+private By facebookshare=By.xpath("(//div[@sectionname='Quick Reads']//li[@id='facebookId'])[16]");
+private By twittershare=By.xpath("(//div[@sectionname='Quick Reads']//li[@id='twitterId'])[16]");
+private By linkedinshare=By.xpath("(//div[@sectionname='Quick Reads']//li[@id='linkedinId'])[16]");
 private By scrolltillsocialsection=By.xpath("//h3[@class='medium-title-m-mb social-section_hr-lines']");
 private By nextsocialcard=By.xpath("//button[@class='slick-arrow slick-next']");
 private By previoussocialcard=By.xpath("//button[@class='slick-arrow slick-prev']");
@@ -45,14 +47,15 @@ private By switchtoaskquestionframe=By.xpath("//div[@class='satisfi_chat']//ifra
 private By clickmobiletestingguide=By.xpath("//div[@class='satisfi_bubble satisfi_fill_available']//button[text()='Mobile Ticketing Guide']");
 private By verifyanstext=By.xpath("(//div[@class='satisfi_bubble satisfi_fill_available']//p)[2]");
 private By closeaskingquestion=By.xpath("//button[@aria-label='Close Chat Popup']");
-JavascriptExecutor js = (JavascriptExecutor) driver;
+
+
 	  	
-	   public LatestPage(WebDriver driver)
+	   
+	   public LatestPage()
 	   {
-		   this.driver=driver;	
+		   this.driver=super.getDriver();	
 		   PageFactory.initElements(driver,this);
 	   }
-	   
 	   public String getLoginPageTitle()
 	   {
 		   return driver.getTitle();
@@ -181,7 +184,7 @@ JavascriptExecutor js = (JavascriptExecutor) driver;
 			List<WebElement> qtotaldates=driver.findElements(quickreads_dates);
 			int size=qtotalcards.size();
             System.out.println(size);
-            for (int i = 8; i < size; i++) 
+            for (int i = 9; i < size; i++) 
             {
                 String cardname = qtotalcards.get(i).getText();
                 String datename=qtotaldates.get(i).getText();

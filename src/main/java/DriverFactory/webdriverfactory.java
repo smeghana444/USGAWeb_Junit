@@ -8,6 +8,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+//ThreadLocal enables you to create variables that can only be read and written by the same thread
 
 public class webdriverfactory
 

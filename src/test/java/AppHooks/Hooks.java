@@ -39,7 +39,9 @@ public void launchbrowser() throws Exception
 	Assert.assertTrue(browserName, true);
 	driverfactory=new webdriverfactory();
 	System.out.println("return driver "+driverfactory);
+	
 	driver=driverfactory.init_driver(browserName);
+	
 	String LaunchURL=prop.getProperty("launchurl");
 	Assert.assertTrue(LaunchURL, true);
 	driver.get(LaunchURL);
@@ -48,11 +50,11 @@ public void launchbrowser() throws Exception
 }
 
 
-@After(order=0)
+/*@After(order=0)
 public void quitBrowser()
 {
 	driver.quit();
-}
+}*/
 @After(order=1)
 public void tearDown(Scenario scenario) throws Exception
 {

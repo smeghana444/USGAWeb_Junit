@@ -1,10 +1,7 @@
 package stepdefinations;
 
 
-
 import org.junit.Assert;
-
-import DriverFactory.webdriverfactory;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import pages.LatestPage;
@@ -12,7 +9,7 @@ import pages.LatestPage;
 
 public class Latest_PageSteps
 {
-	private LatestPage latest=new LatestPage(webdriverfactory.getDriver());
+	private LatestPage latest=new LatestPage();
 	
 	@Given("Verify the app title")
 	public void get_the_app_title() throws Exception 

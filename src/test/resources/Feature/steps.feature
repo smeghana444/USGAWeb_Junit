@@ -1,4 +1,5 @@
 Feature: Navigate to USGA Articles Section
+
   @NavigateLatestSection
   Scenario Outline: USGA Latest Section
    

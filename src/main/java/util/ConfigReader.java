@@ -37,8 +37,6 @@ public Properties init_prop()
 		ClassLoader loader = Thread.currentThread().getContextClassLoader();
 	
 		InputStream resourceStream = loader.getResourceAsStream("config.properties"); 
-		
-	//InputStream instm = new FileInputStream(configpath);
 	prop.load(resourceStream);
 	}catch(Exception e)
 	{
